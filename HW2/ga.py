@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import sys
 from typing import List, Tuple, Optional
 
 class GeneticAlgorithm:
@@ -179,7 +180,7 @@ class GeneticAlgorithm:
             return individual
         
 
-    def _elitism(self, population: List[List[int]], fitness_scores: List[float], elite_size: int = 1) -> List[List[int]]:
+    def _elitism(self, population: List[List[int]], fitness_scores: List[float], elite_size: int = 3) -> List[List[int]]:
         """
         Apply elitism: retain the top elite_size individuals based on fitness scores.
         :param population: Current population
@@ -262,52 +263,81 @@ if __name__ == "__main__":
     cost1 = [[3, 2, 4],
              [4, 3, 2]]
     
-    # M2, N2 = int, int
-    # cost2 = List[List[int]]
+    M2, N2 = 4, 4
+    cost2 = [[5, 6, 7, 4],
+             [4, 5, 6, 3],
+             [6, 4, 5, 2],
+             [3, 2, 4, 5]]
     
     M3, N3 = 8, 9
     cost3 = [[90, 100, 60, 5, 50, 1, 100, 80, 70],
-        [100, 5, 90, 100, 50, 70, 60, 90, 100],
-        [50, 1, 100, 70, 90, 60, 80, 100, 4],
-        [60, 100, 1, 80, 70, 90, 100, 50, 100],
-        [70, 90, 50, 100, 100, 4, 1, 60, 80],
-        [100, 60, 100, 90, 80, 5, 70, 100, 50],
-        [100, 4, 80, 100, 90, 70, 50, 1, 60],
-        [1, 90, 100, 50, 60, 80, 100, 70, 5]]
+             [100, 5, 90, 100, 50, 70, 60, 90, 100],
+             [50, 1, 100, 70, 90, 60, 80, 100, 4],
+             [60, 100, 1, 80, 70, 90, 100, 50, 100],
+             [70, 90, 50, 100, 100, 4, 1, 60, 80],
+             [100, 60, 100, 90, 80, 5, 70, 100, 50],
+             [100, 4, 80, 100, 90, 70, 50, 1, 60],
+             [1, 90, 100, 50, 60, 80, 100, 70, 5]]
     
-    # M4, N4 = int, int
-    # cost4 = List[List[int]]
+    M4, N4 = 3, 3
+    cost4 = [[2, 5, 6],
+             [4, 3, 5],
+             [5, 6, 2]]
     
-    # M5, N5 = int, int
-    # cost5 = List[List[int]]
+    M5, N5 = 4, 4
+    cost5 = [[4, 6, 1, 5],
+             [9, 6, 2, 1],
+             [6, 5, 3, 9],
+             [2, 2, 5, 4]]
     
-    # M6, N6 = int, int
-    # cost6 = List[List[int]]
+    M6, N6 = 4, 4
+    cost6 = [[5, 4, 6, 7],
+             [8, 3, 4, 6],
+             [6, 7, 3, 8],
+             [7, 8, 9, 2]]
     
-    # M7, N7 = int, int
-    # cost7 = List[List[int]]
-    
-    # M8, N8 = int, int
-    # cost8 = List[List[int]]
-    
-    # M9, N9 = int, int
-    # cost9 = List[List[int]]
-    
-    # M10, N10 = int, int
-    # cost10 = List[List[int]]
+    M7, N7 = 4, 4
+    cost7 = [[4, 7, 8, 9],
+             [6, 7, 6, 7], 
+             [8, 6, 2, 6], 
+             [7, 4, 7, 3]]
 
-    # problems = [(M1, N1, np.array(cost1)),
-    #             (M2, N2, np.array(cost2)),
-    #             (M3, N3, np.array(cost3)),
-    #             (M4, N4, np.array(cost4)),
-    #             (M5, N5, np.array(cost5)),
-    #             (M6, N6, np.array(cost6)),
-    #             (M7, N7, np.array(cost7)),
-    #             (M8, N8, np.array(cost8)),
-    #             (M9, N9, np.array(cost9)),
-    #             (M10, N10, np.array(cost10))]
+    M8, N8 = 5, 5
+    cost8 = [[8, 8, 24, 24, 24],
+             [6, 18, 6, 18, 18],
+             [30, 10, 30, 10, 30],
+             [21, 21, 21, 7, 7],
+             [27, 27, 9, 27, 9]]
+    
+    M9, N9 = 5, 5
+    INF = sys.maxsize
+    cost9 = [[10, 10, INF, INF, INF],
+             [12, INF, INF, 12, 12],
+             [INF, 15, 15, INF, INF],
+             [11, INF, 11, INF, INF],
+             [INF, 14, INF, 14, 14]]
+    
+    M10, N10 = 9, 10
+    cost10 = [[1, 90, 100, 50, 70, 20, 100, 60, 80, 90],
+              [100, 10, 1, 100, 60, 80, 70, 100, 50, 90],
+              [90, 50, 70, 1, 100, 100, 60, 90, 80, 100],
+              [70, 100, 90, 5, 10, 60, 100, 80, 90, 50],
+              [50, 100, 100, 90, 20, 4, 80, 70, 60, 100],
+              [100, 5, 80, 70, 90, 100, 4, 50, 1, 60],
+              [90, 60, 50, 4, 100, 90, 100, 5, 10, 80],
+              [100, 70, 90, 100, 4, 60, 1, 90, 100, 5],
+              [80, 100, 5, 60, 50, 90, 70, 100, 4, 1]]
+
     problems = [(M1, N1, np.array(cost1)),
-                (M3, N3, np.array(cost3))]
+                (M2, N2, np.array(cost2)),
+                (M3, N3, np.array(cost3)),
+                (M4, N4, np.array(cost4)),
+                (M5, N5, np.array(cost5)),
+                (M6, N6, np.array(cost6)),
+                (M7, N7, np.array(cost7)),
+                (M8, N8, np.array(cost8)),
+                (M9, N9, np.array(cost9)),
+                (M10, N10, np.array(cost10))]
 
     # Example for GA execution:
     # TODO: Please set the parameters for the genetic algorithm
@@ -316,14 +346,15 @@ if __name__ == "__main__":
         generations=100,
         mutation_rate=0.05,
         crossover_rate=0.8,
-        tournament_size=20,
+        tournament_size=3,
         elitism=True,
-        random_seed=10
+        random_seed=2
     )
 
     # Solve each problem and immediately write the results to the file
     for i, (M, N, student_times) in enumerate(problems, 1):
         best_allocation, total_time = ga(M=M, N=N, student_times=student_times)
+        print(best_allocation)
         write_output_to_file(i, int(total_time))
 
     print("Results have been written to results.txt")
