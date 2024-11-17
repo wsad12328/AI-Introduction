@@ -1,6 +1,5 @@
 import math
 import csv
-from tqdm import tqdm
 
 # 定義類別型資料的映射
 CATEGORY_MAPPINGS = {
@@ -98,7 +97,7 @@ class KNN:
 
     def predict(self, test_data, num_neighbors):
         predictions = []
-        for row in tqdm(test_data, desc="Predicting"):
+        for row in test_data:
             neighbors = self.get_neighbors(row, num_neighbors)
             weighted_neighbors = [(neighbor, self.p_norm_distance(row, neighbor)) for neighbor in neighbors]
             prediction = self.weighted_vote(weighted_neighbors)
